@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-light text-dark dark:bg-dark dark:text-light transition-colors duration-300 antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/10 dark:bg-black/10 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-lg;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary;
+}
+
+/* Base resets */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   👉 Large Display Media Queries (1440p & 4K)
+   Scales typography, spacing, and containers for big screens
+   while preserving all existing animations.
+   ═══════════════════════════════════════════════════════════ */
+
+/* 1440p / QHD (2560 × 1440) */
+@media (min-width: 2560px) {
+  html {
+    font-size: 20px; /* Scale up base from 16px → 20px (1.25x) */
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Widen the container for ultra-wide layouts */
+  .container {
+    max-width: 1800px;
+  }
+}
+
+/* 4K / UHD (3840 × 2160) */
+@media (min-width: 3840px) {
+  html {
+    font-size: 28px; /* Scale up base from 16px → 28px (1.75x) */
+  }
+
+  ::-webkit-scrollbar {
+    width: 14px;
+  }
+
+  .container {
+    max-width: 2800px;
+  }
+}
